@@ -1,3 +1,327 @@
+# 1.0.0
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Jenny
+🛠 Workaround for Unity 2017.3 GUI mask bug (still shows `Mixed...` instead of `Everything` -> Unity bug) #569
+
+
+# 0.47.9
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Jenny
+🛠 Fixed issue with Entitas.Roslyn plugin and non-components with context attibute #564
+🛠 Fixed `auto-import` not making relative search paths on Windows
+
+#### Other
+⚙️ Included readme files in zip
+⚙️ Updated CONTRIBUTING.md and updated bee 🐝
+
+
+# 0.47.8
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Jenny
+🛠 Fixed `The given assembly name or codebase was invalid` on windows #561
+
+
+# 0.47.7
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Jenny
+🛠 Auto-Import properly handles paths with spaces #555
+
+
+# 0.47.6
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Jenny
+- Using correct properties file for each Unity project by saving only the filename instead of full path
+
+
+# 0.47.5
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Entitas
+- Hotfix for EntityLink throwing errors OnApplicationQuit
+
+
+# 0.47.4
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Entitas
+- Hotfix for broken EntityLink (thanks to @c0ffeeartc for reporting so quickly)
+
+
+# 0.47.3
+
+As always, the Unity Asset Store version might take a few days to be processed
+and accepted by Unity. Please check for updates in 2 - 4 days here:
+https://www.assetstore.unity3d.com/#!/content/87638
+
+See and discuss changes in [Milestone 0.47.3](https://github.com/sschmid/Entitas-CSharp/milestone/17?closed=1)
+
+(Finally went back to Milestone development :) Transparency FTW!)
+
+#### Entitas
+- EntityLink will immediately throw an exception if the gameObject is destroyed but still linked to an entity #470
+- Fixed VisualDebugging Toggle in the Entitas Preferences Window #540
+
+#### Jenny
+- Even more support for multiple properties, see #550
+
+
+# 0.47.2
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days here: https://www.assetstore.unity3d.com/#!/content/87638
+
+Here's another update to improve the code generator experience. Thanks again for all your great feedback!
+And thanks for going through this with me :) We're almost there!
+
+#### Breaking changes
+Please follow the [Entitas upgrade guide](https://github.com/sschmid/Entitas-CSharp/blob/master/EntitasUpgradeGuide.md)
+
+#### Entitas
+- Added migration 0.47.2
+
+#### Jenny
+- Added silent mode for `jenny fix` to simplify `jenny auto-import` experience. Use `-s`, e.g `jenny auto-import -s`
+- Added a potential fix for `jenny client gen` command never completes #546
+- Renamed keys from `CodeGenerator.*` to `Jenny.*`. Please apply migration 0.47.2
+- Added support to run CLI from any location
+- Warning when no properties found
+- Removed leading "./" from added searchPaths added by `jenny auto-import`
+- The Roslyn foundation moved to DesperateDevs
+- Using the latest Roslyn libs
+
+#### Other
+- Entitas project cleanup and maintenance
+- Added more automation tasks to bee 🐝
+
+# 0.47.1
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days here: https://www.assetstore.unity3d.com/#!/content/87638
+
+#### Jenny
+- Handling BadImageFormatException
+- Not showing warnings for unresolved assemblies anymore
+- Fixed closing AssemblyResolver before all plugin dependencies were loaded
+- Fixed jenny server construction not complete before executing client command
+
+
+# 0.47.0
+
+#### General
+- Brand new build automation workflow (bee 🐝)
+- Completely automated build, sync and release flow for faster future updates (bzzz 🐝)
+- Only Entitas.zip is attached to GitHub releases
+- Jenny CLI is only bundled in Asset Store version
+- Added Assets folder to Entitas.zip #535
+- More flexible plugin-based CLI architecture
+
+#### Jenny
+- Unity support for multiple properties files by adding switch button to Entitas Preferences in case multiple properties files exist #536
+- Better CLI support for multiple properties files by showing a warning in case multiple properties files exist #536
+- Fixes for server / client errors (ObjectDisposedException) #529
+- Renamed key `CodeGenerator.CLI.Ignore.UnusedKeys` to `Ignore.Keys`
+- `auto-import` reflects assemblies and sets plugins based on content instead of name
+- `auto-import` automatically detects custom plugins in Unity project without manually setting up searchPaths
+- Added visual lines to `dump`
+- Renamed `ICodeGeneratorBase` to `ICodeGenerationPlugin`
+- Fixed `IConfigurable` commands not getting configured
+- Added minified properties support
+
+#### Asset Store
+- Fix for NullReferenceException (Entitas.Roslyn.SymbolExtension.ToCompilableString) #534
+- Support for WrapperComponent #532
+
+# 0.46.3
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days.
+
+#### Code Generation
+- Added `IPreProcessor`
+- Added TargetFrameworkProfilePreProcessor
+- Fixed problems with Roslyn Generator and Visual Studio on Windows #503
+
+
+# 0.46.2
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days.
+
+#### Code Generation
+- Added `IDoctor` for custom diagnosis and custom symptoms treatment :) Will help improving the 
+  code generator setup experience that is aimimg for a one-click setup
+- Implemented IDoctor for ComponentDataProvider, EntityIndexDataProvider and DebugLogPostProcessor
+- Removed `isEnabledByDefault`from all plugins
+
+#### TCPezy
+- ResolveHost returns IPv4 address to fix issue with server / client mode on windows
+
+
+# 0.46.1
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days.
+
+#### Entitas.VisualDebugging.CodeGeneration.Plugins
+-  Added deep device profiling support to generated Feature class #497
+
+#### Unity
+- Added buttons to generate DefaultInstanceDrawer and TypeDrawer
+- Added deep device profiling toggle to Entitas Preferences
+
+<img width="415" alt="Entitas - Deep Device Profiling" src="https://user-images.githubusercontent.com/233700/33909162-f4e1a684-df8a-11e7-89d9-1e910554b954.png">
+
+
+# 0.46.0
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days.
+
+This release is a maintenance release as announced here:
+
+https://github.com/sschmid/Entitas-CSharp/issues/508
+
+As the project got more mature the Entitas repository not only contained the ECS core but also a few other
+modules like Logging, Serialization, Networking, Code Generator, Common Utils and more.
+The goal of this refactoring was to extract reusable modules and increase the focus of the Entitas repository
+on ECS. Reusable modules have been successfully extracted to their own standalone projects. Overall, with the
+increased focus that is achieved by having standalone projects I expect the quality to raise, too. This is
+generally the case when you have reusable code that is battle tested in multiple different scenarios.
+
+As mentioned in #508 those projects all have the `DesperateDevs` namespace. You maybe already know about
+Desperate Devs because of the new YouTube channel where I will upload more and more Video on ECS,
+best practices and Software Architecture. Subscribe if you don't want to miss future videos.
+
+https://www.youtube.com/channel/UC2q7q7tcrwWHu5GSGyt_JEQ
+
+As a result of this refactoring I was able to remove a lot of noise from the Entitas repository and I could
+easily fix platform depended bugs without any distraction.
+
+<img width="385" alt="entitas-desperatedevs" src="https://user-images.githubusercontent.com/233700/33746219-2011570a-dbbc-11e7-9631-4e8730fa7847.png">
+
+Entitas will benefit from having the Desperate Devs dependencies as it enforces modularity and reusability.
+Additionally, it will be possible to use awesome tools like TCPezy (DesperateDev.Networking) and Jenny (DesperateDevs.CodeGeneration) independently.
+
+
+#### Breaking changes
+Please follow the [Entitas upgrade guide](https://github.com/sschmid/Entitas-CSharp/blob/master/EntitasUpgradeGuide.md)
+
+#### Obsolete notice
+- Removed methods marked obsolete in 0.42.0 from April 2017
+- Blueprints are now completely removed from the zip files (sources still available)
+
+#### Preferences
+- Showing properties name in Edit Button
+
+#### Jenny (aka Code Generator)
+- CodeGeneratorPreferencesDrawer will keep unavailable plugins #496
+- Added Display Dialog for auto import
+- Added a secret and hidden cli command, can you find it? ❤️
+
+#### TCPezy (aka entitas server)
+- Fixed Unhandled Exception (appeared on Windows only) #489
+
+#### Other
+- Changed language level of all projects to C# 4.0
+- Deleted CodeGenerator Unity Test project
+
+
+# 0.45.1
+
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days.
+
+#### CodeGenerator
+- Added Auto Import Button to Entitas Preferences. This will detect plugins and automatically set them in Entitas.properties
+
+
+# 0.45.0
+
+Thanks for the feedback on the new code generator so far. This update contains a lot of great improvments.
+As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.
+Please check for updates in 2 - 4 days.
+
+
+#### Breaking changes
+Please follow the [Entitas upgrade guide](https://github.com/sschmid/Entitas-CSharp/blob/master/EntitasUpgradeGuide.md)
+
+
+#### Entitas
+- Fixed flag components increasing the componentPool stack #445
+- Logging all retained entities in ContextStillHasRetainedEntitiesException #448
+- Added support for multiple indexed members per component #464
+
+```
+public sealed class MyComponent : IComponent {
+
+  // Multiple fields are now supported
+
+  [EntityIndex]
+  public int value;
+
+  [EntityIndex]
+  public int otherValue;
+}
+
+// will generate
+context.GetEntitiesWithMyValue(...);
+context.GetEntitiesWithMyOtherValue(...);
+```
+
+
+#### CodeGenerator
+- Displaying more prominent popup in Unity when trying to generate with compile errors #463
+
+![entitas-codegenerator-compileerrorpopup](https://user-images.githubusercontent.com/233700/32519395-e8dccbdc-c40c-11e7-8a6c-08f176b23244.png)
+
+- AssemblyResolver won't append dll to exe extension
+- Changed code generator keys and removed default values
+- Changed code generator cli keys and removed default values
+- Added auto-import command. Use `entitas auto-import` to automatically populate Entitas.properties
+- `entitas status` command will detect potential collisions, e.g. duplicate providers from the default plugins and the roslyn plugins
+- `entitas fix` can resolve plugin collisions
+- `entitas fix` command will tell you to press any key
+- Removed `-a` keepAlive in favour of `entitas server` and `entitas client`
+- Fixed client only sending first command to server #482
+- Default Plugins are now in folder called Entitas
+- Refactored all commands and simplified many utils methods
+- `Entitas.exe` now with capital E
+
+
+#### Roslyn
+- Added custom support for multi-dimensional arrays types like `int[,,]` #481
+Let me know if more types need custom support.
+
+#### Migration
+- Added migration for 0.45.0
+
+
 # 0.44.0
 
 As always, the Unity Asset Store version might take a few days to be processed and accepted by Unity.

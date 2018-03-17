@@ -86,16 +86,10 @@ namespace Entitas {
         }
 
         public GroupChanged<TEntity> HandleEntity(TEntity entity) {
-            if (_matcher.Matches(entity)) {
-                addEntitySilently(entity);
-                return OnEntityAdded;
-            } else {
-                removeEntitySilently(entity);
-                return OnEntityRemoved;
-            }
-            // return _matcher.Matches(entity)
-            //     ? (addEntitySilently(entity) ? OnEntityAdded : null)
-            //     : (removeEntitySilently(entity) ? OnEntityRemoved : null);
+            return _matcher.Matches(entity)
+                ? (addEntitySilently(entity) || entity.isEnabled ? OnEntityAdded : null) // cedric
+                // ? (addEntitySilently(entity) ? OnEntityAdded : null) // original entitas
+                : (removeEntitySilently(entity) ? OnEntityRemoved : null);
         }
 
         bool addEntitySilently(TEntity entity) {
@@ -114,8 +108,8 @@ namespace Entitas {
         }
 
         void addEntity(TEntity entity, int index, IComponent component) {
-            //if (addEntitySilently(entity) && OnEntityAdded != null) {
-            addEntitySilently(entity);
+            //if (addEntitySilently(entity) && OnEntityAdded != null) { // original entitas
+            addEntitySilently(entity);   // fedor
             if (OnEntityAdded != null) {
                 OnEntityAdded(this, entity, index, component);
             }
@@ -141,10 +135,6 @@ namespace Entitas {
                     OnEntityRemoved(this, entity, index, component);
                 }
                 entity.Release(this);
-            } else {
-                if (OnEntityRemoved != null) {
-                    OnEntityRemoved(this, entity, index, component);
-                }
             }
         }
 

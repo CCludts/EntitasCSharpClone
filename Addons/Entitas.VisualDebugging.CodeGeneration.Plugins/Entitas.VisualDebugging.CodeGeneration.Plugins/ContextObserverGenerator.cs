@@ -54,6 +54,7 @@ ${contextObservers}
 
         string generateContextsClass(string[] contextNames) {
             var contextObservers = string.Join("\n", contextNames
+                .Where(contextName => contextName.ToLower() != "sync") // cedric
                 .Select(contextName => CONTEXT_OBSERVER_TEMPLATE
                     .Replace("${contextName}", contextName.LowercaseFirst())
                 ).ToArray());

@@ -25,14 +25,18 @@ namespace Entitas.CodeGeneration.Plugins {
 
     public void Add${ComponentName}(${memberArgs}) {
         var index = ${Index};
-        var component = CreateComponent<${ComponentType}>(index);
+        // var component = CreateComponent<${ComponentType}>(index);
+        var componentPool = GetComponentPool(index);
+        var component = componentPool.Count > 0 ? (${ComponentType})componentPool.Pop() : new ${ComponentType}();
 ${memberAssignment}
         AddComponent(index, component);
     }
 
     public void Replace${ComponentName}(${memberArgs}) {
         var index = ${Index};
-        var component = CreateComponent<${ComponentType}>(index);
+        // var component = CreateComponent<${ComponentType}>(index);
+        var componentPool = GetComponentPool(index);
+        var component = componentPool.Count > 0 ? (${ComponentType})componentPool.Pop() : new ${ComponentType}();
 ${memberAssignment}
         ReplaceComponent(index, component);
     }

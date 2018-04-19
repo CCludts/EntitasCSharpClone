@@ -29,7 +29,8 @@ namespace Entitas.CodeGeneration.Plugins {
 #else
                 new Entitas.SafeAERC(entity)
 #endif
-
+            ,
+            () => new ${ContextName}Entity()
         ) {
     }
 }

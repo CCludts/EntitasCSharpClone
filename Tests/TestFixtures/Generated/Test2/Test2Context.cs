@@ -24,7 +24,7 @@ public sealed partial class Test2Context : Entitas.Context<Test2Entity> {
 #else
                 new Entitas.SafeAERC(entity)
 #endif
-
+            , () => new Test2Entity()
         ) {
     }
 }

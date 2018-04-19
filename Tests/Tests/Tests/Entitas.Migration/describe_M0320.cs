@@ -1,4 +1,4 @@
-﻿using System.IO;
+using System.IO;
 using System.Linq;
 using Entitas.Migration;
 using NSpec;
@@ -43,7 +43,7 @@ class describe_M0320 : nspec {
         it["updates pool.CreateSystem(instance)"] = () => {
             var updatedFiles = m.Migrate(dir);
             var file = updatedFiles[1];
-            file.fileContent.should_be("pool.CreateSystem(new MySystem1());\npool.CreateSystem(new MySystem2());\n");
+            file.fileContent.should_be("pool.CreateSystem(new MySystem1());\r\npool.CreateSystem(new MySystem2());\r\n");
         };
     }
 }

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Entitas {
 
@@ -21,6 +21,9 @@ namespace Entitas {
         int count { get; }
         int reusableEntitiesCount { get; }
         int retainedEntitiesCount { get; }
+        IEntity[] __sortedEntities { get; }
+        int __sortedEntitiesMaxCount { get; }
+        int __creationIndex { get; }
 
         void DestroyAllEntities();
 

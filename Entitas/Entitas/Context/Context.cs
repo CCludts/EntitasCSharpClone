@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DesperateDevs.Utils;
@@ -50,6 +50,11 @@ namespace Entitas {
         /// other objects (e.g. Group, Collector, ReactiveSystem).
         public int retainedEntitiesCount { get { return _retainedEntities.Count; } }
 
+        public IEntity[] __sortedEntities { get { return _sortedEntities; } }
+        public int __sortedEntitiesMaxCount { get { return _sortedEntitiesMaxCount; } }
+        public int __creationIndex { get { return _creationIndex; } }
+
+        const int _sortedEntitiesMaxCount = 65536; // 2^13
         readonly int _totalComponents;
 
         readonly Stack<IComponent>[] _componentPools;
@@ -140,6 +145,9 @@ namespace Entitas {
             }
 
             _entities.Add(entity);
+            if (entity.creationIndex < _sortedEntitiesMaxCount) {
+                _sortedEntities[entity.creationIndex] = entity;
+            }
             entity.Retain(this);
             _entitiesCache = null;
 
@@ -165,6 +173,7 @@ namespace Entitas {
             }
 
             _entities.Clear();
+            Array.Clear(_sortedEntities, 0, _sortedEntities.Length);
 
             if (_retainedEntities.Count != 0) {
                 throw new ContextStillHasRetainedEntitiesException(this, _retainedEntities.ToArray());
@@ -338,6 +347,9 @@ namespace Entitas {
                     "'" + this + "' cannot destroy " + tEntity + "!",
                     "This cannot happen!?!"
                 );
+            }
+            if (entity.creationIndex < _sortedEntities.Length) {
+                _sortedEntities[entity.creationIndex] = null;
             }
             _entitiesCache = null;
 

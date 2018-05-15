@@ -258,15 +258,24 @@ namespace Entitas {
         /// Resets the context (destroys all entities and
         /// resets creationIndex back to 0).
         public void Reset() {
+            foreach (var group in _groups.Values) {
+                group.RemoveAllEventHandlers();
+            }
+            foreach (var index in _entityIndices.Values) {
+                index.Deactivate(); // clears internally
+            }
             DestroyAllEntities();
             ResetCreationIndex();
-
+            foreach (var index in _entityIndices.Values) {
+                index.Activate();
+            }
+            
             OnEntityCreated = null;
             OnEntityWillBeDestroyed = null;
             OnEntityDestroyed = null;
             OnGroupCreated = null;
         }
-
+        
         public override string ToString() {
             return _contextInfo.name;
         }

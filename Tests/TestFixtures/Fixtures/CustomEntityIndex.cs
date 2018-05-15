@@ -31,12 +31,12 @@ namespace MyNamespace {
         }
 
         [EntityIndexGetMethod]
-        public HashSet<TestEntity> GetEntitiesWithPosition(IntVector2 position) {
+        public OrderedSet<TestEntity> GetEntitiesWithPosition(IntVector2 position) {
             return GetEntities(position);
         }
 
         [EntityIndexGetMethod]
-        public HashSet<TestEntity> GetEntitiesWithPosition2(IntVector2 position, IntVector2 size) {
+        public OrderedSet<TestEntity> GetEntitiesWithPosition2(IntVector2 position, IntVector2 size) {
             return GetEntities(position);
         }
     }

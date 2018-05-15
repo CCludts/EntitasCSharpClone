@@ -15,6 +15,6 @@ namespace Entitas {
 
     public interface ICollector<TEntity> : ICollector where TEntity : class, IEntity {
 
-        HashSet<TEntity> collectedEntities { get; }
+        OrderedSet<TEntity> collectedEntities { get; }
     }
 }

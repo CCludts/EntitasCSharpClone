@@ -132,40 +132,40 @@ public static class ContextsExtensions {
         return ((Entitas.PrimaryEntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.MultiplePrimaryEntityIndicesValue2)).GetEntity(value2);
     }
 
-    public static System.Collections.Generic.HashSet<TestEntity> GetEntitiesWithPosition(this TestContext context, IntVector2 position) {
+    public static System.Collections.Generic.OrderedSet<TestEntity> GetEntitiesWithPosition(this TestContext context, IntVector2 position) {
         return ((MyNamespace.CustomEntityIndex)(context.GetEntityIndex(Contexts.MyNamespaceCustomEntityIndex))).GetEntitiesWithPosition(position);
     }
 
-    public static System.Collections.Generic.HashSet<TestEntity> GetEntitiesWithPosition2(this TestContext context, IntVector2 position, IntVector2 size) {
+    public static System.Collections.Generic.OrderedSet<TestEntity> GetEntitiesWithPosition2(this TestContext context, IntVector2 position, IntVector2 size) {
         return ((MyNamespace.CustomEntityIndex)(context.GetEntityIndex(Contexts.MyNamespaceCustomEntityIndex))).GetEntitiesWithPosition2(position, size);
     }
 
 
-    public static System.Collections.Generic.HashSet<TestEntity> GetEntitiesWithMyNamespaceEntityIndex(this TestContext context, string value) {
+    public static System.Collections.Generic.OrderedSet<TestEntity> GetEntitiesWithMyNamespaceEntityIndex(this TestContext context, string value) {
         return ((Entitas.EntityIndex<TestEntity, string>)context.GetEntityIndex(Contexts.MyNamespaceEntityIndex)).GetEntities(value);
     }
 
-    public static System.Collections.Generic.HashSet<Test2Entity> GetEntitiesWithMyNamespaceEntityIndex(this Test2Context context, string value) {
+    public static System.Collections.Generic.OrderedSet<Test2Entity> GetEntitiesWithMyNamespaceEntityIndex(this Test2Context context, string value) {
         return ((Entitas.EntityIndex<Test2Entity, string>)context.GetEntityIndex(Contexts.MyNamespaceEntityIndex)).GetEntities(value);
     }
 
-    public static System.Collections.Generic.HashSet<GameEntity> GetEntitiesWithMyNamespaceEntityIndexNoContext(this GameContext context, string value) {
+    public static System.Collections.Generic.OrderedSet<GameEntity> GetEntitiesWithMyNamespaceEntityIndexNoContext(this GameContext context, string value) {
         return ((Entitas.EntityIndex<GameEntity, string>)context.GetEntityIndex(Contexts.MyNamespaceEntityIndexNoContext)).GetEntities(value);
     }
 
-    public static System.Collections.Generic.HashSet<TestEntity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue(this TestContext context, string value) {
+    public static System.Collections.Generic.OrderedSet<TestEntity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue(this TestContext context, string value) {
         return ((Entitas.EntityIndex<TestEntity, string>)context.GetEntityIndex(Contexts.MyNamespaceMultipleEntityIndicesValue)).GetEntities(value);
     }
 
-    public static System.Collections.Generic.HashSet<Test2Entity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue(this Test2Context context, string value) {
+    public static System.Collections.Generic.OrderedSet<Test2Entity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue(this Test2Context context, string value) {
         return ((Entitas.EntityIndex<Test2Entity, string>)context.GetEntityIndex(Contexts.MyNamespaceMultipleEntityIndicesValue)).GetEntities(value);
     }
 
-    public static System.Collections.Generic.HashSet<TestEntity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue2(this TestContext context, string value2) {
+    public static System.Collections.Generic.OrderedSet<TestEntity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue2(this TestContext context, string value2) {
         return ((Entitas.EntityIndex<TestEntity, string>)context.GetEntityIndex(Contexts.MyNamespaceMultipleEntityIndicesValue2)).GetEntities(value2);
     }
 
-    public static System.Collections.Generic.HashSet<Test2Entity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue2(this Test2Context context, string value2) {
+    public static System.Collections.Generic.OrderedSet<Test2Entity> GetEntitiesWithMyNamespaceMultipleEntityIndicesValue2(this Test2Context context, string value2) {
         return ((Entitas.EntityIndex<Test2Entity, string>)context.GetEntityIndex(Contexts.MyNamespaceMultipleEntityIndicesValue2)).GetEntities(value2);
     }
 

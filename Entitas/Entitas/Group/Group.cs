@@ -28,7 +28,7 @@ namespace Entitas {
 
         readonly IMatcher<TEntity> _matcher;
 
-        readonly HashSet<TEntity> _entities = new HashSet<TEntity>(
+        readonly OrderedSet<TEntity> _entities = new OrderedSet<TEntity>(
             EntityEqualityComparer<TEntity>.comparer
         );
 

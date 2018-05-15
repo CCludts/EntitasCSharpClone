@@ -5,25 +5,25 @@ namespace Entitas {
 
     public class EntityIndex<TEntity, TKey> : AbstractEntityIndex<TEntity, TKey> where TEntity : class, IEntity {
 
-        readonly Dictionary<TKey, HashSet<TEntity>> _index;
+        readonly Dictionary<TKey, OrderedSet<TEntity>> _index;
 
         public EntityIndex(string name, IGroup<TEntity> group, Func<TEntity, IComponent, TKey> getKey) : base(name, group, getKey) {
-            _index = new Dictionary<TKey, HashSet<TEntity>>();
+            _index = new Dictionary<TKey, OrderedSet<TEntity>>();
             Activate();
         }
 
         public EntityIndex(string name, IGroup<TEntity> group, Func<TEntity, IComponent, TKey[]> getKeys) : base(name, group, getKeys) {
-            _index = new Dictionary<TKey, HashSet<TEntity>>();
+            _index = new Dictionary<TKey, OrderedSet<TEntity>>();
             Activate();
         }
 
         public EntityIndex(string name, IGroup<TEntity> group, Func<TEntity, IComponent, TKey> getKey, IEqualityComparer<TKey> comparer) : base(name, group, getKey) {
-            _index = new Dictionary<TKey, HashSet<TEntity>>(comparer);
+            _index = new Dictionary<TKey, OrderedSet<TEntity>>(comparer);
             Activate();
         }
 
         public EntityIndex(string name, IGroup<TEntity> group, Func<TEntity, IComponent, TKey[]> getKeys, IEqualityComparer<TKey> comparer) : base(name, group, getKeys) {
-            _index = new Dictionary<TKey, HashSet<TEntity>>(comparer);
+            _index = new Dictionary<TKey, OrderedSet<TEntity>>(comparer);
             Activate();
         }
 
@@ -32,10 +32,10 @@ namespace Entitas {
             indexEntities(_group);
         }
 
-        public HashSet<TEntity> GetEntities(TKey key) {
-            HashSet<TEntity> entities;
+        public OrderedSet<TEntity> GetEntities(TKey key) {
+            OrderedSet<TEntity> entities;
             if (!_index.TryGetValue(key, out entities)) {
-                entities = new HashSet<TEntity>(EntityEqualityComparer<TEntity>.comparer);
+                entities = new OrderedSet<TEntity>(EntityEqualityComparer<TEntity>.comparer);
                 _index.Add(key, entities);
             }
 

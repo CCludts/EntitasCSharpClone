@@ -13,8 +13,8 @@ namespace Entitas {
         public static List<int> GetIntList() { return _cache.Get<List<int>>(); }
         public static void PushIntList(List<int> list) { list.Clear(); _cache.Push(list); }
 
-        public static HashSet<int> GetIntHashSet() { return _cache.Get<HashSet<int>>(); }
-        public static void PushIntHashSet(HashSet<int> hashSet) { hashSet.Clear(); _cache.Push(hashSet); }
+        public static OrderedSet<int> GetIntHashSet() { return _cache.Get<OrderedSet<int>>(); }
+        public static void PushIntHashSet(OrderedSet<int> hashSet) { hashSet.Clear(); _cache.Push(hashSet); }
 
         public static void Reset() {
             _cache.Reset();

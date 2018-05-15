@@ -11,12 +11,12 @@ namespace Entitas {
         /// Returns all collected entities.
         /// Call collector.ClearCollectedEntities()
         /// once you processed all entities.
-        public HashSet<TEntity> collectedEntities { get { return _collectedEntities; } }
+        public OrderedSet<TEntity> collectedEntities { get { return _collectedEntities; } }
 
         /// Returns the number of all collected entities.
         public int count { get { return _collectedEntities.Count; } }
 
-        readonly HashSet<TEntity> _collectedEntities;
+        readonly OrderedSet<TEntity> _collectedEntities;
         readonly IGroup<TEntity>[] _groups;
         readonly GroupEvent[] _groupEvents;
 
@@ -33,7 +33,7 @@ namespace Entitas {
         /// based on the specified groupEvents.
         public Collector(IGroup<TEntity>[] groups, GroupEvent[] groupEvents) {
             _groups = groups;
-            _collectedEntities = new HashSet<TEntity>(EntityEqualityComparer<TEntity>.comparer);
+            _collectedEntities = new OrderedSet<TEntity>(EntityEqualityComparer<TEntity>.comparer);
             _groupEvents = groupEvents;
 
             if (groups.Length != groupEvents.Length) {

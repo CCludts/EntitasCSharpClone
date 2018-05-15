@@ -13,10 +13,10 @@ namespace Entitas {
 
         public int retainCount { get { return _owners.Count; } }
 
-        public HashSet<object> owners { get { return _owners; } }
+        public OrderedSet<object> owners { get { return _owners; } }
 
         readonly IEntity _entity;
-        readonly HashSet<object> _owners = new HashSet<object>();
+        readonly OrderedSet<object> _owners = new OrderedSet<object>();
 
         public SafeAERC(IEntity entity) {
             _entity = entity;
